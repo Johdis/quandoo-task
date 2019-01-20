@@ -5,7 +5,7 @@ WORKDIR /app
 COPY quandoo-task/Gemfile quandoo-task/Gemfile.lock /app/
 COPY quandoo-task /app/
 
-RUN gem install bundler 
+RUN gem install bundler
 RUN bundle install
 
-CMD ["ruby", "/app/tests/loginTests.rb"]
+CMD ["ruby", "/app/tests/login_tests.rb"]
