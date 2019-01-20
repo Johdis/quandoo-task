@@ -61,7 +61,8 @@ class LoginPage
   end
 
   def login_failure
-    @driver.save_screenshot('./screen.png')
+#    @driver.save_screenshot('./screen.png')
     return @driver.find_element(:css, @@message_failure)
   end
+  
 end
