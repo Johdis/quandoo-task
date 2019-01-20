@@ -1,0 +1,5 @@
+source "https://rubygems.org" do
+  gem 'selenium-webdriver', '~> 3.141', '>= 3.141.0'
+
+  gem 'minitest'
+end
