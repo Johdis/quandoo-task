@@ -10,6 +10,6 @@ After installing just navigate in a terminal to the cloned repository and start 
 
 Everything what is not installed on your machine will be downloaded by docker and bundler.
 
-After the execution you should use _**docker-compose down**_ to clear containers and the RAM of your machine.
+
 
 Please let me know if you have any questions.
