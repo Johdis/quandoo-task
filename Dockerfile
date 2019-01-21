@@ -8,4 +8,4 @@ COPY quandoo-task /app/
 RUN gem install bundler
 RUN bundle install
 
-CMD ["ruby", "/app/tests/login_tests.rb"]
+CMD ["ruby", "/app/tests/quandoo_tests.rb"]

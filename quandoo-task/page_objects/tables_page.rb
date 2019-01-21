@@ -1,7 +1,9 @@
-class HoverPage
+class TablesPage
 
-  AVATAR = 'figure'
-  HOVER_USERNAME = 'figcaption'
+  TABLE_HEADER_DEFAULT = "#table2 .header"
+  TABLE_HEADER_ASCENDING = "#table2 .header.headerSortDown"
+  TABLE_HEADER_DESCENDING = "#table2 .header.headerSortUp"
+  LASTNAMES = "#table2 td.last-name"
 
   def initialize
     browser = ENV['BROWSER']
@@ -22,28 +24,28 @@ class HoverPage
     @driver = Selenium::WebDriver.for(:remote, :url => hub_url, :desired_capabilities => cap)
     @driver.manage.window.size = Selenium::WebDriver::Dimension.new(1920, 1080)
     @driver.manage.timeouts.implicit_wait = 10
-    @driver.navigate.to 'http://the-internet.herokuapp.com/hovers'
+    @driver.navigate.to 'http://the-internet.herokuapp.com/tables'
   end
 
   def close_browser()
     @driver.quit
   end
 
-  def get_list_avatars
-    return @driver.find_elements(:class, AVATAR)
+  def click_header_default
+    @driver.find_element(:css, TABLE_HEADER_DEFAULT).click
   end
 
-  def hover(element)
-    @driver.action.move_to(element).perform
+  def click_header_ascending
+    @driver.find_element(:css, TABLE_HEADER_ASCENDING).click
   end
 
-  def get_username
-    elements = @driver.find_elements(:class, HOVER_USERNAME)
+  def get_last_names
+    names = []
+    elements = @driver.find_elements(:css, LASTNAMES)
     elements.each do |element|
-      if element.displayed?
-        return element.text
-        break
-      end
+      names.push(element.text)
     end
+    return names
   end
+
 end

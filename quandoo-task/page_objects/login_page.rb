@@ -1,14 +1,14 @@
 class LoginPage
 
-  @@username = 'tomsmith'
-  @@password = 'SuperSecretPassword!'
-  @@wrong_username = 'maxmustermann'
-  @@wrong_password = 'UnvalidPassword3000'
-  @@login_field = 'username'
-  @@password_field = 'password'
-  @@submit_button = 'radius'
-  @@message_success = ".flash.success"
-  @@message_failure = ".flash.error"
+  USERNAME = 'tomsmith'
+  PASSWORD = 'SuperSecretPassword!'
+  WRONG_USERNAME = 'maxmustermann'
+  WRONG_USERPASSWORD = 'UnvalidPassword3000'
+  LOGIN_FIELD = 'username'
+  PASSWORD_FIELD = 'password'
+  SUBMIT_BUTTON = 'radius'
+  MESSAGE_SUCCESS = ".flash.success"
+  MESSAGE_FAILURE = ".flash.error"
 
   def initialize
     browser = ENV['BROWSER']
@@ -37,32 +37,31 @@ class LoginPage
   end
 
   def login_username
-    @driver.find_element(:id, @@login_field).send_keys @@username
+    @driver.find_element(:id, LOGIN_FIELD).send_keys USERNAME
   end
 
   def login_password
-    @driver.find_element(:id, @@password_field).send_keys @@password
+    @driver.find_element(:id, PASSWORD_FIELD).send_keys PASSWORD
   end
 
   def login_wrong_username
-    @driver.find_element(:id, @@login_field).send_keys @@wrong_username
+    @driver.find_element(:id, LOGIN_FIELD).send_keys WRONG_USERNAME
   end
 
   def login_wrong_password
-    @driver.find_element(:id, @@password_field).send_keys @@wrong_password
+    @driver.find_element(:id, PASSWORD_FIELD).send_keys WRONG_USERPASSWORD
   end
 
   def login_submit
-    @driver.find_element(:class, @@submit_button).click
+    @driver.find_element(:class, SUBMIT_BUTTON).click
   end
 
   def login_check
-    return @driver.find_element(:css, @@message_success)
+    return @driver.find_element(:css, MESSAGE_SUCCESS)
   end
 
   def login_failure
-#    @driver.save_screenshot('./screen.png')
-    return @driver.find_element(:css, @@message_failure)
+    return @driver.find_element(:css, MESSAGE_FAILURE)
   end
-  
+
 end
